@@ -1,4 +1,3 @@
-// components/Home.jsx
 import React from "react";
 import { Box, useTheme, useMediaQuery } from "@mui/material";
 import Topbar from "../../Components/Topbar";
