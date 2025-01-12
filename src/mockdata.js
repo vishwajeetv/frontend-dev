@@ -1,0 +1,80 @@
+export default {
+  cards: [
+    {
+      balance: "5,756",
+      cardHolder: "Eddy Cusuma",
+      cardNumber: "3778 **** **** 1234",
+      validThru: "12/22",
+      isSecondary: false,
+    },
+    {
+      balance: "5,756",
+      cardHolder: "Eddy Cusuma",
+      cardNumber: "3778 **** **** 1234",
+      validThru: "12/22",
+      isSecondary: true,
+    },
+  ],
+  transactions: [
+    {
+      id: 1,
+      name: "Deposit from my Card",
+      date: "22 January 2021",
+      amount: -850,
+      avatar: "/avatars/deposit.png",
+    },
+    {
+      id: 2,
+      name: "Deposit Paypal",
+      date: "21 January 2021",
+      amount: 2500,
+      avatar: "/avatars/paypal.png",
+    },
+    {
+      id: 3,
+      name: "Jemi Wilson",
+      date: "21 January 2021",
+      amount: 5400,
+      avatar: "/avatars/jemi.png",
+    },
+  ],
+  quickTransfer: [
+    { id: 1, name: "Livia Bator", role: "CEO", avatar: "/avatars/livia.png" },
+    {
+      id: 2,
+      name: "Randy Press",
+      role: "Director",
+      avatar: "/avatars/randy.png",
+    },
+    {
+      id: 3,
+      name: "Workman",
+      role: "Designer",
+      avatar: "/avatars/workman.png",
+    },
+  ],
+  weeklyActivity: [
+    { day: "Sat", deposit: 400, withdraw: 200 },
+    { day: "Sun", deposit: 300, withdraw: 100 },
+    { day: "Mon", deposit: 500, withdraw: 300 },
+    { day: "Tue", deposit: 700, withdraw: 400 },
+    { day: "Wed", deposit: 600, withdraw: 300 },
+    { day: "Thu", deposit: 800, withdraw: 500 },
+    { day: "Fri", deposit: 900, withdraw: 600 },
+  ],
+  expenseStats: [
+    { name: "Entertainment", value: 30 },
+    { name: "Investment", value: 20 },
+    { name: "Bills Expense", value: 15 },
+    { name: "Others", value: 35 },
+  ],
+  balanceHistory: [
+    { month: "Jul", balance: 200 },
+    { month: "Aug", balance: 400 },
+    { month: "Sep", balance: 600 },
+    { month: "Oct", balance: 400 },
+    { month: "Nov", balance: 500 },
+    { month: "Dec", balance: 350 },
+    { month: "Jan", balance: 450 },
+  ],
+};
