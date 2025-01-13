@@ -38,7 +38,7 @@ const Topbar = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            bgColor: "#f5f6fa",
+            bgcolor: "#f5f6fa",
             borderRadius: 1,
             px: 2,
             py: 0.5,

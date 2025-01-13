@@ -1,113 +1,97 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Box,
-  Typography,
-  IconButton,
-  useTheme,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import {
-  Home as HomeIcon,
-  AccountBalance as TransactionsIcon,
-  Person as AccountsIcon,
-  ShowChart as InvestmentsIcon,
-  CreditCard as CreditCardsIcon,
-  AccountBalanceWallet as LoansIcon,
-  Build as ServicesIcon,
-  Stars as PrivilegesIcon,
-  Settings as SettingIcon,
-  Menu as MenuIcon,
+  Home,
+  AccountBalance,
+  Person,
+  ShowChart,
+  CreditCard,
+  AccountBalanceWallet,
+  Build,
+  Stars,
+  Settings,
 } from "@mui/icons-material";
 
+const menuItems = [
+  { text: "Dashboard", icon: <Home />, path: "/" },
+  { text: "Transactions", icon: <AccountBalance />, path: "/transactions" },
+  { text: "Accounts", icon: <Person />, path: "/accounts" },
+  { text: "Investments", icon: <ShowChart />, path: "/investments" },
+  { text: "Credit Cards", icon: <CreditCard />, path: "/credit-cards" },
+  { text: "Loans", icon: <AccountBalanceWallet />, path: "/loans" },
+  { text: "Services", icon: <Build />, path: "/services" },
+  { text: "My Privileges", icon: <Stars />, path: "/privileges" },
+  { text: "Setting", icon: <Settings />, path: "/settings" },
+];
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [open, setOpen] = useState(!isMobile);
-
-  const menuItems = [
-    { text: "Dashboard", icon: <HomeIcon /> },
-    { text: "Transactions", icon: <TransactionsIcon /> },
-    { text: "Accounts", icon: <AccountsIcon /> },
-    { text: "Investments", icon: <InvestmentsIcon /> },
-    { text: "Credit Cards", icon: <CreditCardsIcon /> },
-    { text: "Loans", icon: <LoansIcon /> },
-    { text: "Services", icon: <ServicesIcon /> },
-    { text: "My Privileges", icon: <PrivilegesIcon /> },
-    { text: "Setting", icon: <SettingIcon /> },
-  ];
-
   return (
-    <Box sx={{ display: "flex" }}>
-      {isMobile && (
-        <IconButton
-          onClick={() => setOpen(!open)}
-          sx={{
-            position: "fixed",
-            left: open ? 240 : 10,
-            top: 12,
-            zIndex: 1300,
-            backgroundColor: "white",
-            border: "1px solid #eee",
-            "&:hover": {
-              backgroundColor: "white",
-            },
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-      )}
-
-      <Drawer
-        variant={isMobile ? "temporary" : "permanent"}
-        anchor="left"
-        open={open}
-        onClose={() => setOpen(false)}
-        sx={{
-          width: 240,
-          "& .MuiDrawer-paper": {
-            width: 240,
-            boxSizing: "border-box",
-            backgroundColor: "#f5f6fa",
-            borderRight: "none",
-            marginTop: isMobile ? 0 : "64px",
-          },
-        }}
-      >
-        <List>
-          {menuItems.map((item) => (
-            <ListItem
-              button
-              key={item.text}
+    <Drawer
+      variant={isMobile ? "temporary" : "permanent"}
+      sx={{
+        width: "120px",
+        "& .MuiDrawer-paper": {
+          width: "260px",
+          boxSizing: "border-box",
+          bgcolor: "white",
+          borderRight: "none",
+          mt: "64px",
+        },
+      }}
+    >
+      <List sx={{ px: 2 }}>
+        {menuItems.map((item) => (
+          <ListItem
+            button
+            key={item.text}
+            onClick={() => navigate(item.path)}
+            sx={{
+              py: 1.5,
+              px: 2,
+              borderRadius: "8px",
+              mb: 0.5,
+              color: location.pathname === item.path ? "#2F3349" : "#9e9e9e",
+              bgcolor:
+                location.pathname === item.path ? "#f5f6fa" : "transparent",
+              "&:hover": {
+                bgcolor: "#f5f6fa",
+              },
+            }}
+          >
+            <ListItemIcon
               sx={{
-                py: 1.5,
-                "&:hover": {
-                  backgroundColor: "#fff",
-                },
+                color: location.pathname === item.path ? "#2F3349" : "#9e9e9e",
+                minWidth: "32px",
               }}
             >
-              <ListItemIcon sx={{ color: "#9e9e9e", minWidth: 40 }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                sx={{
-                  "& .MuiTypography-root": {
-                    color: "#666",
-                    fontWeight: 500,
-                  },
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    </Box>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText
+              primary={item.text}
+              sx={{
+                "& .MuiTypography-root": {
+                  fontWeight: location.pathname === item.path ? 600 : 400,
+                  fontSize: "0.95rem",
+                },
+              }}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </Drawer>
   );
 };
-
 export default Sidebar;
