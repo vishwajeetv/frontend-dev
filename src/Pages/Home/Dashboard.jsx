@@ -33,8 +33,12 @@ const Dashboard = () => {
   return (
     <Box sx={{ p: 3, bgColor: "#f5f6fa" }}>
       <Grid container spacing={3}>
-        <CardsWrapper cardsData={mockData.cards} />
-        <TransactionsWrapper transactionsData={mockData.transactions} />
+        <Grid item sm={8} xs={12}>
+          <CardsWrapper cardsData={mockData.cards} />
+        </Grid>
+        <Grid item sm={4} xs={12}>
+          <TransactionsWrapper transactionsData={mockData.transactions} />
+        </Grid>
 
         <Grid item xs={12} md={6}>
           <WeeklyActivity data={mockData.weeklyActivity} />

@@ -4,7 +4,7 @@ import CreditCard from "./CreditCard.jsx";
 
 export default function CardsWrapper({ cardsData }) {
   return (
-    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap", width: "70vw" }}>
+    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap", width: "100%" }}>
       <Box
         sx={{
           display: "flex",
