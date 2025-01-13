@@ -20,18 +20,18 @@ import {
   XAxis,
 } from "recharts";
 import mockData from "../../mockData";
-import CreditCard from "../../Components/CreditCard.jsx";
-import CardsWrapper from "../../Components/CardsWrapper.jsx";
-import TransactionsWrapper from "../../Components/TransactionsWrapper.jsx";
+import CreditCard from "./CreditCard.jsx";
+import CardsWrapper from "./CardsWrapper.jsx";
+import TransactionsWrapper from "./TransactionsWrapper.jsx";
 
-import BalanceHistory from "../../Components/BalanceHistory.jsx";
-import ExpenseStatistics from "../../Components/ExpenseStatistics.jsx";
-import WeeklyActivity from "../../Components/WeeklyActivity.jsx";
-import QuickTransfer from "../../Components/QuickTransfer.jsx";
+import BalanceHistory from "./BalanceHistory.jsx";
+import ExpenseStatistics from "./ExpenseStatistics.jsx";
+import WeeklyActivity from "./WeeklyActivity.jsx";
+import QuickTransfer from "./QuickTransfer.jsx";
 
 const Dashboard = () => {
   return (
-    <Box sx={{ p: 3, bgColor: "#f5f6fa" }}>
+    <Box sx={{ p: 3, bgcolor: "#f5f6fa" }}>
       <Grid container spacing={3}>
         <Grid item sm={8} xs={12}>
           <CardsWrapper cardsData={mockData.cards} />

@@ -1,72 +1,67 @@
 import React from "react";
-import {
-  Box,
-  List,
-  ListItem,
-  Avatar,
-  Typography,
-  ListItemText,
-  ListItemSecondaryAction,
-} from "@mui/material";
+import { Box, Typography, Avatar } from "@mui/material";
 
 const Transactions = ({ transactions }) => {
   return (
     <Box
       sx={{
-        bgColor: "white",
-        borderRadius: 2,
-        boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.05)",
+        bgcolor: "white",
+        borderRadius: 3,
+        p: 3,
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.05)",
       }}
     >
-      <List>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
         {transactions.map((transaction) => (
-          <ListItem
+          <Box
             key={transaction.id}
             sx={{
-              py: 2,
-              px: 3,
-              "&:not(:last-child)": {
-                borderBottom: "1px solid #f5f6fa",
-              },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            <Avatar
-              src={transaction.avatar}
-              sx={{
-                mr: 2,
-                width: 40,
-                height: 40,
-              }}
-            />
-            <ListItemText
-              primary={transaction.name}
-              secondary={transaction.date}
-              sx={{
-                "& .MuiTypography-root": {
-                  color: "#1a237e",
-                  fontWeight: 500,
-                },
-                "& .MuiTypography-body2": {
-                  color: "#9e9e9e",
-                  fontSize: "0.875rem",
-                },
-              }}
-            />
-            <ListItemSecondaryAction>
-              <Typography
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Avatar
                 sx={{
-                  color: transaction.amount > 0 ? "#4caf50" : "#f44336",
-                  fontWeight: 600,
-                  fontSize: "0.875rem",
+                  width: 48,
+                  height: 48,
+                  bgcolor: transaction.iconBg || "#f5f6fa",
                 }}
-              >
-                {transaction.amount > 0 ? "+" : "-"}$
-                {Math.abs(transaction.amount)}
-              </Typography>
-            </ListItemSecondaryAction>
-          </ListItem>
+                src={transaction.avatar}
+              />
+              <Box>
+                <Typography
+                  sx={{
+                    color: "#2F3349",
+                    fontWeight: 500,
+                    mb: 0.5,
+                  }}
+                >
+                  {transaction.name}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#9e9e9e",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  {transaction.date}
+                </Typography>
+              </Box>
+            </Box>
+            <Typography
+              sx={{
+                color: transaction.amount > 0 ? "#4caf50" : "#f44336",
+                fontWeight: 600,
+              }}
+            >
+              {transaction.amount > 0 ? "+" : "-"}$
+              {Math.abs(transaction.amount).toLocaleString()}
+            </Typography>
+          </Box>
         ))}
-      </List>
+      </Box>
     </Box>
   );
 };

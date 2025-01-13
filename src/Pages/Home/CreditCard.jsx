@@ -4,9 +4,9 @@ const CreditCard = ({ cardData }) => {
   return (
     <Box
       sx={{
-        width: { xs: "280px", md: "320px" },
-        height: { xs: "170px", md: "200px" },
-        bgColor: cardData.isSecondary ? "#ffffff" : "#2F3349",
+        width: { xs: "265px", md: "350px" },
+        height: { xs: "170px", md: "235px" },
+        bgcolor: cardData.isSecondary ? "#ffffff" : "#2F3349",
         borderRadius: "16px",
         p: 2.5,
         color: cardData.isSecondary ? "#2F3349" : "#ffffff",
@@ -90,7 +90,7 @@ const CreditCard = ({ cardData }) => {
           top: 20,
           width: 35,
           height: 25,
-          bgColor: cardData.isSecondary
+          bgcolor: cardData.isSecondary
             ? "rgba(47, 51, 73, 0.1)"
             : "rgba(255, 255, 255, 0.1)",
           borderRadius: 1,

@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import CreditCard from "./CreditCard.jsx";
 
 export default function CardsWrapper({ cardsData }) {
   return (
-    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap", width: "100%" }}>
+    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap", width: "100%", ml: 1 }}>
       <Box
         sx={{
           display: "flex",
@@ -23,6 +23,7 @@ export default function CardsWrapper({ cardsData }) {
         >
           My Cards
         </Typography>
+
         <Typography
           sx={{
             color: "primary.main",
@@ -40,7 +41,7 @@ export default function CardsWrapper({ cardsData }) {
           width: "100%",
           "::-webkit-scrollbar": { display: "none" },
           scrollbarWidth: "none",
-          px: { xs: 2, md: 3 },
+          px: { xs: 2, md: 2.5 },
           pb: 1,
         }}
       >
