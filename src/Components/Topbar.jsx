@@ -7,6 +7,7 @@ import {
   Box,
   IconButton,
   Avatar,
+  useMediaQuery,
 } from "@mui/material";
 import {
   Search as SearchIcon,
@@ -15,6 +16,7 @@ import {
 } from "@mui/icons-material";
 
 const Topbar = () => {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
   return (
     <AppBar
       position="fixed"
@@ -34,24 +36,26 @@ const Topbar = () => {
 
         <Box sx={{ flexGrow: 1 }} />
 
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            bgcolor: "#f5f6fa",
-            borderRadius: 1,
-            px: 2,
-            py: 0.5,
-            width: "400px",
-            mr: 2,
-          }}
-        >
-          <SearchIcon sx={{ color: "#9e9e9e", mr: 1 }} />
-          <InputBase
-            placeholder="Search for something"
-            sx={{ color: "#9e9e9e", width: "100%" }}
-          />
-        </Box>
+        {!isMobile && (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              bgcolor: "#f5f6fa",
+              borderRadius: 1,
+              px: 2,
+              py: 0.5,
+              width: "400px",
+              mr: 2,
+            }}
+          >
+            <SearchIcon sx={{ color: "#9e9e9e", mr: 1 }} />
+            <InputBase
+              placeholder="Search for something"
+              sx={{ color: "#9e9e9e", width: "100%" }}
+            />
+          </Box>
+        )}
 
         <IconButton sx={{ color: "#9e9e9e" }}>
           <SettingsIcon />
@@ -71,6 +75,26 @@ const Topbar = () => {
           src="/avatar.jpg"
         />
       </Toolbar>
+      {isMobile && (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            bgcolor: "white",
+            borderRadius: 1,
+            px: 2,
+            py: 2,
+            width: "400px",
+            mr: 2,
+          }}
+        >
+          <SearchIcon sx={{ color: "#9e9e9e", mr: 1 }} />
+          <InputBase
+            placeholder="Search for something"
+            sx={{ color: "#9e9e9e", width: "100%" }}
+          />
+        </Box>
+      )}
     </AppBar>
   );
 };

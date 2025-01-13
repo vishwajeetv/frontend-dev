@@ -9,7 +9,14 @@ const Settings = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box sx={{ p: 3, bgcolor: "#f5f6fa", ml: "160px" }}>
+    <Box
+      sx={{
+        p: 3,
+        bgcolor: "#f5f6fa",
+        ml: { md: "160px", xs: "0px" },
+        mt: { xs: 3, md: 0 },
+      }}
+    >
       <Box
         sx={{
           display: "flex",
