@@ -19,7 +19,7 @@ import {
   ResponsiveContainer,
   XAxis,
 } from "recharts";
-import mockData from "../../mockData";
+import mockData from "../../mockdata.js";
 import CreditCard from "./CreditCard.jsx";
 import CardsWrapper from "./CardsWrapper.jsx";
 import TransactionsWrapper from "./TransactionsWrapper.jsx";
