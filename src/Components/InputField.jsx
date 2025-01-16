@@ -28,8 +28,8 @@ const InputField = ({ label, ...props }) => {
             },
           },
         }}
-        required
         {...props}
+        required
       />
     </Box>
   );
