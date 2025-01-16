@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -8,6 +8,8 @@ import {
   ListItem,
   TextField,
   Button,
+  Skeleton,
+  CircularProgress,
 } from "@mui/material";
 import {
   BarChart,
@@ -28,8 +30,28 @@ import BalanceHistory from "./BalanceHistory.jsx";
 import ExpenseStatistics from "./ExpenseStatistics.jsx";
 import WeeklyActivity from "./WeeklyActivity.jsx";
 import QuickTransfer from "./QuickTransfer.jsx";
+import SummaryService from "../../Services/SummaryService.js";
 
 const Dashboard = () => {
+  const [summaryData, setSummaryData] = React.useState(null);
+  const [loading, setLoading] = React.useState("not-started");
+  const [errorMessage, setErrorMessage] = React.useState(null);
+
+  useEffect(() => {
+    setLoading("started");
+    SummaryService.getSummaryData()
+      .then((responseData) => {
+        if (responseData?.data) {
+          setSummaryData(responseData.data);
+        }
+        setLoading("done");
+      })
+      .catch((error) => {
+        setErrorMessage("Something went wrong. Please try again later.");
+        setLoading("done");
+      });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -38,30 +60,45 @@ const Dashboard = () => {
         ml: { md: 2.5 },
       }}
     >
-      <Grid container spacing={{ md: 3, xs: 3 }}>
-        <Grid item sm={8} xs={12}>
-          <CardsWrapper cardsData={mockData.cards} />
+      {loading === "started" && (
+        <Grid
+          container
+          sx={{ height: "600px" }}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <CircularProgress sx={{ left: "50%", top: "50%" }} />
         </Grid>
-        <Grid item sm={4} xs={12}>
-          <TransactionsWrapper transactionsData={mockData.transactions} />
-        </Grid>
+      )}
+      {loading === "done" && errorMessage && (
+        <Typography>{errorMessage}</Typography>
+      )}
+      {loading === "done" && summaryData && (
+        <Grid container spacing={{ md: 3, xs: 3 }}>
+          <Grid item sm={8} xs={12}>
+            <CardsWrapper cardsData={mockData.cards} />
+          </Grid>
+          <Grid item sm={4} xs={12}>
+            <TransactionsWrapper transactionsData={mockData.transactions} />
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <WeeklyActivity data={mockData.weeklyActivity} />
-        </Grid>
+          <Grid item xs={12} md={6}>
+            <WeeklyActivity data={mockData.weeklyActivity} />
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <ExpenseStatistics data={mockData.expenseStats} />
-        </Grid>
+          <Grid item xs={12} md={6}>
+            <ExpenseStatistics data={mockData.expenseStats} />
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <QuickTransfer contacts={mockData.quickTransfer} />
-        </Grid>
+          <Grid item xs={12} md={6}>
+            <QuickTransfer contacts={mockData.quickTransfer} />
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <BalanceHistory data={mockData.balanceHistory} />
+          <Grid item xs={12} md={6}>
+            <BalanceHistory data={mockData.balanceHistory} />
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Box>
   );
 };
