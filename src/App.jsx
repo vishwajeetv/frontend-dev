@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home/Home.jsx";
 import Layout from "./Components/Layout.jsx";
 import Settings from "./Pages/Settings/Settings.jsx";
+import { Suspense, lazy } from "react";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/settings",
-        element: <Settings />,
+        element: (
+          <Suspense fallback={<>...</>}>
+            <Settings />
+          </Suspense>
+        ),
       },
       {
         path: "/transactions",
