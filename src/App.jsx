@@ -12,15 +12,38 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/transactions",
-      //   element: <Transactions />,
-      // },
       {
         path: "/settings",
         element: <Settings />,
       },
-      // Add other routes
+      {
+        path: "/transactions",
+        element: <></>,
+      },
+      {
+        path: "/accounts",
+        element: <></>,
+      },
+      {
+        path: "/investments",
+        element: <></>,
+      },
+      {
+        path: "/credit-cards",
+        element: <></>,
+      },
+      {
+        path: "/loans",
+        element: <></>,
+      },
+      {
+        path: "/services",
+        element: <></>,
+      },
+      {
+        path: "/privileges",
+        element: <></>,
+      },
     ],
   },
 ]);
