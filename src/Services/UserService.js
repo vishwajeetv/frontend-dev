@@ -1,7 +1,7 @@
-import mockdata from "../Mocks/mockDashboardData.js";
+import mockdata from "../Mocks/mockUserDetails.js";
 
-export default class SummaryService {
-  static getSummaryData() {
+export default class UserService {
+  static getUserDetails() {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ data: mockdata });

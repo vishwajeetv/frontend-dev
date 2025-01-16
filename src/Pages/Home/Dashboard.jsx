@@ -21,7 +21,6 @@ import {
   ResponsiveContainer,
   XAxis,
 } from "recharts";
-import mockData from "../../mockdata.js";
 import CreditCard from "./CreditCard.jsx";
 import CardsWrapper from "./CardsWrapper.jsx";
 import TransactionsWrapper from "./TransactionsWrapper.jsx";
@@ -76,26 +75,26 @@ const Dashboard = () => {
       {loading === "done" && summaryData && (
         <Grid container spacing={{ md: 3, xs: 3 }}>
           <Grid item sm={8} xs={12}>
-            <CardsWrapper cardsData={mockData.cards} />
+            <CardsWrapper cardsData={summaryData.cards} />
           </Grid>
           <Grid item sm={4} xs={12}>
-            <TransactionsWrapper transactionsData={mockData.transactions} />
+            <TransactionsWrapper transactionsData={summaryData.transactions} />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <WeeklyActivity data={mockData.weeklyActivity} />
+            <WeeklyActivity data={summaryData.weeklyActivity} />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <ExpenseStatistics data={mockData.expenseStats} />
+            <ExpenseStatistics data={summaryData.expenseStats} />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <QuickTransfer contacts={mockData.quickTransfer} />
+            <QuickTransfer contacts={summaryData.quickTransfer} />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <BalanceHistory data={mockData.balanceHistory} />
+            <BalanceHistory data={summaryData.balanceHistory} />
           </Grid>
         </Grid>
       )}
