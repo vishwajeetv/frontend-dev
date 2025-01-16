@@ -8,7 +8,7 @@ const Transactions = ({ transactions }) => {
         bgcolor: "white",
         borderRadius: 3,
         p: 3,
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.05)",
+        boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.05)",
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>

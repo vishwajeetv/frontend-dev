@@ -4,7 +4,7 @@ import Transactions from "./Transactions";
 
 export default function TransactionsWrapper({ transactionsData }) {
   return (
-    <Grid item xs={12} sx={{ ml: 3 }}>
+    <Grid item xs={12}>
       <Box
         sx={{
           display: "flex",
