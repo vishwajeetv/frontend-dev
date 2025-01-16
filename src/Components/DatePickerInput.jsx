@@ -25,10 +25,11 @@ const DatePickerInput = ({ label, ...props }) => {
           {...props}
           sx={{
             "& .MuiOutlinedInput-root": {
-              bgcolor: "#f5f6fa",
+              // bgcolor: "#f5f6fa",
               "& fieldset": {
                 border: "1px solid #e0e0e0",
               },
+              borderRadius: 2,
               "&:hover fieldset": {
                 borderColor: "#2F3349",
               },
