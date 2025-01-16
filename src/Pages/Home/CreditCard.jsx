@@ -84,16 +84,18 @@ const CreditCard = ({ cardData }) => {
       </Box>
 
       <Box
+        component={"img"}
+        src={
+          cardData.isSecondary
+            ? "/ChipCardLogoDark.svg"
+            : "/ChipCardLogoLight.svg"
+        }
         sx={{
           position: "absolute",
           right: 20,
           top: 20,
           width: 35,
-          height: 25,
-          bgcolor: cardData.isSecondary
-            ? "rgba(47, 51, 73, 0.1)"
-            : "rgba(255, 255, 255, 0.1)",
-          borderRadius: 1,
+          // height: 25,
         }}
       />
     </Box>

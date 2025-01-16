@@ -39,18 +39,26 @@ export default {
     },
   ],
   quickTransfer: [
-    { id: 1, name: "Livia Bator", role: "CEO", avatar: "/avatars/livia.png" },
+    {
+      id: 1,
+      name: "Livia Bator",
+      role: "CEO",
+      avatar: "/avatars/livia.png",
+      highlighted: true,
+    },
     {
       id: 2,
       name: "Randy Press",
       role: "Director",
       avatar: "/avatars/randy.png",
+      highlighted: false,
     },
     {
       id: 3,
       name: "Workman",
       role: "Designer",
       avatar: "/avatars/workman.png",
+      highlighted: false,
     },
   ],
   weeklyActivity: [
