@@ -25,7 +25,7 @@ const theme = createTheme({
         root: {
           "@media (max-width:600px)": {
             width: "100%",
-            maxWidth: "100vw",
+            // maxWidth: "100vw",
             overflow: "hidden",
           },
         },

@@ -29,7 +29,11 @@ const Topbar = () => {
     >
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Box component="img" src="/Logo.svg" sx={{ height: 24 }} />
+          <Box
+            component="img"
+            src="/Logo.svg"
+            sx={{ height: 24, ml: { xs: 2, md: 0 } }}
+          />
         </Box>
 
         <Typography sx={{ color: "#1a237e", ml: 4 }}>Overview</Typography>
@@ -57,13 +61,17 @@ const Topbar = () => {
           </Box>
         )}
 
-        <IconButton sx={{ color: "#9e9e9e" }}>
-          <SettingsIcon />
-        </IconButton>
+        {!isMobile && (
+          <IconButton sx={{ color: "#9e9e9e" }}>
+            <SettingsIcon />
+          </IconButton>
+        )}
 
-        <IconButton sx={{ color: "#9e9e9e" }}>
-          <NotificationsIcon />
-        </IconButton>
+        {!isMobile && (
+          <IconButton sx={{ color: "#9e9e9e" }}>
+            <NotificationsIcon />
+          </IconButton>
+        )}
 
         <Avatar
           sx={{

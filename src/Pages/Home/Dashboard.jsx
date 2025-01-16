@@ -31,8 +31,14 @@ import QuickTransfer from "./QuickTransfer.jsx";
 
 const Dashboard = () => {
   return (
-    <Box sx={{ p: 3, bgcolor: "#f5f6fa" }}>
-      <Grid container spacing={3}>
+    <Box
+      sx={{
+        p: { md: 3, xs: 2 },
+        bgcolor: { md: "#f5f6fa", xs: "white" },
+        ml: { md: 2.5 },
+      }}
+    >
+      <Grid container spacing={{ md: 3, xs: 3 }}>
         <Grid item sm={8} xs={12}>
           <CardsWrapper cardsData={mockData.cards} />
         </Grid>

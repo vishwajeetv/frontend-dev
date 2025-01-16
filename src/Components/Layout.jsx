@@ -5,21 +5,43 @@ import Sidebar from "./Sidebar.jsx";
 import Topbar from "./Topbar.jsx";
 
 const Layout = () => {
-  const theme = useTheme();
-
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        // width: "100%",
+        // maxWidth: "100vw",
+        // overflow: "hidden",
+        "@media (max-width:600px)": {
+          "& .MuiContainer-root": {
+            px: 2,
+          },
+          "& .MuiBox-root": {
+            // width: "100%",
+            // maxWidth: "100vw",
+            // overflow: "hidden",
+          },
+        },
+      }}
+    >
       <Topbar />
-      <Box sx={{ display: "flex", flex: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          // width: "100%",
+          // maxWidth: "100vw",
+          // overflow: "hidden",
+        }}
+      >
         <Sidebar />
         <Box
           component="main"
           sx={{
             flexGrow: 1,
-            ml: { xs: 0 },
-            // mt: "64px",
-            bgcolor: "#f5f6fa",
-            transition: `margin-left ${theme.transitions.duration.standard}ms ${theme.transitions.easing.sharp}`,
+            // width: "100%",
+            // maxWidth: "100vw",
+            // overflow: "hidden",
+            // px: { xs: 2, md: 3 },
+            // py: 3,
           }}
         >
           <Outlet />
