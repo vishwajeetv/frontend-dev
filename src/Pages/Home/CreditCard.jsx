@@ -4,18 +4,18 @@ const CreditCard = ({ cardData }) => {
   return (
     <Box
       sx={{
-        width: { xs: "265px", md: "350px" },
-        height: { xs: "170px", md: "235px" },
+        width: "100%",
+        aspectRatio: "1.586",
         bgcolor: cardData.isSecondary ? "#ffffff" : "#2F3349",
         borderRadius: "16px",
-        p: 2.5,
+        p: { xs: 2.5, sm: 3 },
         color: cardData.isSecondary ? "#2F3349" : "#ffffff",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundImage: cardData.isSecondary
           ? "none"
-          : "linear-gradient(to bottom right, #2F3349, #1E2231)",
+          : "linear-gradient(145deg, #2F3349 0%, #1E2231 100%)",
         position: "relative",
         border: cardData.isSecondary ? "1px solid #eef0f7" : "none",
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.05)",
@@ -23,79 +23,100 @@ const CreditCard = ({ cardData }) => {
     >
       <Box>
         <Typography
-          variant="caption"
           sx={{
             color: cardData.isSecondary
               ? "rgba(47, 51, 73, 0.6)"
               : "rgba(255, 255, 255, 0.6)",
-            display: "block",
+            fontSize: { xs: "0.75rem", sm: "0.875rem" },
             mb: 0.5,
           }}
         >
           Balance
         </Typography>
-        <Typography variant="h5" sx={{ fontWeight: 500 }}>
+        <Typography
+          sx={{
+            fontSize: { xs: "1.75rem", sm: "2rem" },
+            fontWeight: 500,
+            lineHeight: 1.2,
+          }}
+        >
           ${cardData.balance}
         </Typography>
       </Box>
 
-      <Box>
-        <Box sx={{ mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+        }}
+      >
+        <Box>
           <Typography
-            variant="caption"
             sx={{
               color: cardData.isSecondary
                 ? "rgba(47, 51, 73, 0.6)"
                 : "rgba(255, 255, 255, 0.6)",
-              display: "block",
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
               mb: 0.5,
             }}
           >
             CARD HOLDER
           </Typography>
-          <Typography>{cardData.cardHolder}</Typography>
+          <Typography
+            sx={{ fontSize: { xs: "1rem", sm: "1.125rem" }, mb: 0.5 }}
+          >
+            {cardData.cardHolder}
+          </Typography>
+          <Typography sx={{ fontSize: { xs: "0.875rem", sm: "1rem" }, mt: 2 }}>
+            {cardData.cardNumber}
+          </Typography>
         </Box>
 
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography>{cardData.cardNumber}</Typography>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography>{cardData.validThru}</Typography>
-            <Box
-              component="img"
-              src={
-                cardData.isSecondary
-                  ? "/CreditCardLogoDark.svg"
-                  : "/CreditCardLogoLight.svg"
-              }
-              sx={{
-                width: 32,
-                height: "auto",
-                opacity: 0.8,
-              }}
-            />
-          </Box>
+        <Box sx={{ textAlign: "right" }}>
+          <Typography
+            sx={{
+              color: cardData.isSecondary
+                ? "rgba(47, 51, 73, 0.6)"
+                : "rgba(255, 255, 255, 0.6)",
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
+              mb: 0.5,
+            }}
+          >
+            VALID THRU
+          </Typography>
+          <Typography sx={{ fontSize: { xs: "0.875rem", sm: "1rem" }, mb: 2 }}>
+            {cardData.validThru}
+          </Typography>
+          <Box
+            component="img"
+            src={
+              cardData.isSecondary
+                ? "/CreditCardLogoDark.svg"
+                : "/CreditCardLogoLight.svg"
+            }
+            sx={{
+              width: { xs: 35, sm: 40 },
+              height: "auto",
+              opacity: 0.8,
+            }}
+          />
         </Box>
       </Box>
 
       <Box
-        component={"img"}
+        component="img"
         src={
-          cardData.isSecondary
+          cardData?.isSecondary
             ? "/ChipCardLogoDark.svg"
             : "/ChipCardLogoLight.svg"
         }
         sx={{
           position: "absolute",
-          right: 20,
-          top: 20,
-          width: 35,
-          // height: 25,
+          right: { xs: 16, sm: 20 },
+          top: { xs: 16, sm: 20 },
+          width: { xs: 32, sm: 40 },
+          height: "auto",
         }}
       />
     </Box>

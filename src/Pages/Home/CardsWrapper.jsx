@@ -1,62 +1,56 @@
-import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, Typography } from "@mui/material";
 import CreditCard from "./CreditCard.jsx";
 
-export default function CardsWrapper({ cardsData }) {
+const CardsWrapper = ({ cardsData }) => {
   return (
-    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap", width: "100%", ml: 1 }}>
+    <Box sx={{ width: "100%", mt: { xs: 6, md: 0 } }}>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           mb: 2,
-          px: { xs: 2, md: 3 },
         }}
       >
-        <Typography
-          variant="h6"
-          sx={{
-            color: "#1a237e",
-            fontSize: { xs: "1.1rem", md: "1.25rem" },
-          }}
-        >
-          My Cards
-        </Typography>
-
-        <Typography
-          sx={{
-            color: "primary.main",
-            fontSize: "0.875rem",
-            cursor: "pointer",
-          }}
-        >
-          See All
-        </Typography>
+        <Typography variant="h6">My Cards</Typography>
+        <Typography sx={{ color: "primary.main" }}>See All</Typography>
       </Box>
 
       <Box
         sx={{
-          overflowX: "auto",
-          width: "100%",
-          "::-webkit-scrollbar": { display: "none" },
-          scrollbarWidth: "none",
-          px: { xs: 2, md: 2.5 },
-          pb: 1,
+          display: { xs: "block", sm: "flex" },
+          flexWrap: { sm: "wrap" },
+          gap: 2,
+          width: { xs: "calc(100% + 32px)", sm: "100%" },
+          margin: { xs: "0 -16px", sm: 0 },
         }}
       >
         <Box
           sx={{
             display: "flex",
             gap: 2,
-            width: "max-content",
+            overflowX: { xs: "auto", sm: "visible" },
+            padding: { xs: "0 16px", sm: 0 },
+            pb: 1,
+            "::-webkit-scrollbar": { display: "none" },
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {cardsData.map((card, index) => (
-            <CreditCard key={index} cardData={card} />
+            <Box
+              key={index}
+              sx={{
+                flex: { xs: "0 0 280px", sm: "0 0 auto" },
+                width: { xs: "100%", sm: "350px" },
+              }}
+            >
+              <CreditCard cardData={card} />
+            </Box>
           ))}
         </Box>
       </Box>
     </Box>
   );
-}
+};
+export default CardsWrapper;
