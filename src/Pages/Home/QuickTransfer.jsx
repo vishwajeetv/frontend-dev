@@ -4,11 +4,7 @@ import SendIcon from "@mui/icons-material/Send";
 
 const QuickTransfer = ({ contacts }) => {
   return (
-    <Box
-      sx={{
-        ml: 3,
-      }}
-    >
+    <Box>
       <Typography variant="h6" mb={3}>
         Quick Transfer
       </Typography>
@@ -17,7 +13,7 @@ const QuickTransfer = ({ contacts }) => {
         sx={{
           bgcolor: "white",
           p: 3,
-          borderRadius: 2,
+          borderRadius: 3,
           boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.05)",
         }}
       >
